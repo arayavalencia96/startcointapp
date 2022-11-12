@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Button } from "react-native";
+import { View, Text, Button } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import UserCtx from "../userCtx";
 import { getAuth } from "firebase/auth";
@@ -87,16 +87,6 @@ const MainScreen = () => {
     </View>
   );
 };
-
-{
-  /* <View style={styles.container}>
-      <ConItem></ConItem>
-      <Text>Registrado con el email: {user.email}</Text>
-      <Pressable style={[styles.button, styles.bgRebeccaPurple]} onPress={logout}>
-        <Text style={[styles.buttonText, styles.textLight]}>Cerrar Sesión</Text>
-      </Pressable>
-    </View> */
-}
 
 const styles = StyleSheet.create({
   containerr: {

@@ -15,12 +15,16 @@ const ConItem = ({ coin }) => {
         <Text style={styles.text}>Precio: {coin.current_price} US$</Text>
         <View style={styles.price}>
           <Text style={styles.text}>24hs: </Text>
-          <Text style={[
+          <Text
+            style={[
               styles.clrUp,
               coin.price_change_percentage_24h > 0
                 ? styles.clrUp
                 : styles.clrDown,
-            ]}>{coin.price_change_24h} US$</Text>
+            ]}
+          >
+            {coin.price_change_24h} US$
+          </Text>
         </View>
         <View style={styles.price}>
           <Text style={styles.text}>% 24hs: </Text>

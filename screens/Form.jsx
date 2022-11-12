@@ -17,7 +17,6 @@ import {
   Pressable,
   TouchableHighlight,
   Alert,
-  Image,
   ActivityIndicator,
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
@@ -27,7 +26,6 @@ import { Formik } from "formik";
 import { styles } from "../styles/styles";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
 import UserCtx from "../userCtx";
-import Coin from '../assets/coin.svg';
 
 const Form = () => {
   const navigation = useNavigation();
@@ -36,7 +34,6 @@ const Form = () => {
   const [isNewUser, setIsNewUser] = useState(false);
   const [initializing, setInitializing] = useState(true);
 
-  //handling user state change
   const stateChange = (user) => {
     setUser((prev) => (prev = user));
     if (initializing) setInitializing((prev) => (prev = false));
@@ -44,16 +41,16 @@ const Form = () => {
 
   useEffect(() => {
     const subscriber = auth.onAuthStateChanged(stateChange);
-    return subscriber; //unsubscribe on unmount
+    return subscriber;
   }, []);
 
   const handleRegister = (values) => {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredentials) => {
-        setUser((prev) => ({ ...prev, email: values.email }));
-        storeUser(values.email);
+        setUser((prev) => ({ ...prev, email: '' }));
+        storeUser('');
       })
-      .catch((err) => Alert.alert(`El email ${email} ya esta registrado.`));
+      .catch((err) => Alert.alert(`Email repetido`));
   };
 
   const handleLogin = (values) => {
@@ -78,7 +75,6 @@ const Form = () => {
 
   return (
     <View>
-      <Coin width={20} height={20}></Coin>
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={loginValidationSchema}
@@ -88,7 +84,6 @@ const Form = () => {
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
           <View style={styles.container}>
-            {/* todo: show possible errors here */}
             {errors.email && touched.email && (
               <Text style={styles.error}>{errors.email}</Text>
             )}
