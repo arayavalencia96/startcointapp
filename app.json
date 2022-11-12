@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "coinstart-app",
+    "slug": "coinstart-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/coin.svg",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/coin.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.coinstart.app"
+    },
+    "android": {
+      "package": "com.coinstart.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/coin.svg",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/coin.svg"
+    }
+  }
+}
